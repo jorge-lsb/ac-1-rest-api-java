@@ -1,11 +1,12 @@
-package br.com.bandtec.apirestspotify.services;
+package br.com.bandtec.apirestspotify.model;
 
-import br.com.bandtec.apirestspotify.model.Streaming;
+import br.com.bandtec.apirestspotify.services.BaseServices;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Publisher {
+public class Publisher implements BaseServices {
+
     private String name;
     private boolean verified;
     private String details;
@@ -20,11 +21,18 @@ public class Publisher {
         listStreaming = new ArrayList<Streaming>();
     }
 
-    public void addStreaming(Streaming s) {
-        listStreaming.add(s);
+    @Override
+    public void add(Object generic) {
+        listStreaming.add(((Streaming) generic));
     }
 
-    public void deleteStreaming(int index) {
+    @Override
+    public void update(int index, Object generic) {
+        listStreaming.set(index, ((Streaming) generic));
+    }
+
+    @Override
+    public void delete(int index) {
         listStreaming.remove(index);
     }
 

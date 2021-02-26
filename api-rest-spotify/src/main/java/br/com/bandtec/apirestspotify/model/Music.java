@@ -2,8 +2,8 @@ package br.com.bandtec.apirestspotify.model;
 
 public class Music extends Streaming {
 
-    public Music(double streamingValue, int amountOfStreaming) {
-        super(streamingValue, amountOfStreaming);
+    public Music(String name, double playingTime, double streamingValue, int amountOfStreaming) {
+        super(name, playingTime, streamingValue, amountOfStreaming);
     }
 
     @Override
