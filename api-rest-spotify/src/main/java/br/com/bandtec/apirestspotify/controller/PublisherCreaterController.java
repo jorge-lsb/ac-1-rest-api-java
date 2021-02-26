@@ -4,13 +4,15 @@ import br.com.bandtec.apirestspotify.model.Publisher;
 import br.com.bandtec.apirestspotify.model.Spotify;
 import org.springframework.web.bind.annotation.*;
 
+import static br.com.bandtec.apirestspotify.IoC.SpotifyIoC.getSpotify;
+
 @RestController
 @RequestMapping("/publisher")
 public class PublisherCreaterController {
 
-    Spotify spotify = new Spotify();
+    Spotify spotify = getSpotify();
 
-    @GetMapping("/publicadores")
+    @GetMapping("/listar")
     public Spotify get() {
         return spotify;
     }
