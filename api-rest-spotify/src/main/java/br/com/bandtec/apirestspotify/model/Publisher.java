@@ -23,25 +23,23 @@ public class Publisher implements BaseServices {
 
     @Override
     public void add(Object generic) {
-        listStreaming.add(((Streaming) generic));
+        if (this.type.equals("artista"))
+            listStreaming.add(((Music) generic));
+        else
+            listStreaming.add(((Podcast) generic));
     }
 
     @Override
     public void update(int index, Object generic) {
-        listStreaming.set(index, ((Streaming) generic));
+        if (this.type.equals("artista"))
+            listStreaming.set(index, ((Music) generic));
+        else
+            listStreaming.set(index, ((Podcast) generic));
     }
 
     @Override
     public void delete(int index) {
         listStreaming.remove(index);
-    }
-
-    public int totalListeners() {
-        int total = 0;
-        for (Streaming s : listStreaming) {
-            total += s.getAmountOfStreaming();
-        }
-        return total;
     }
 
     public String getName() {
@@ -82,5 +80,13 @@ public class Publisher implements BaseServices {
 
     public void setListStreaming(List<Streaming> listStreaming) {
         this.listStreaming = listStreaming;
+    }
+
+    public int getTotalListeners() {
+        int total = 0;
+        for (Streaming s : listStreaming) {
+            total += s.getAmountOfStreaming();
+        }
+        return total;
     }
 }

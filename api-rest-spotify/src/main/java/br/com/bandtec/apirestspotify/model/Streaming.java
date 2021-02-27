@@ -13,7 +13,7 @@ public abstract class Streaming {
         this.amountOfStreaming = amountOfStreaming;
     }
 
-    public abstract double calculateRevenue();
+    public abstract double getCalculateRevenue();
 
     public String getName() {
         return name;

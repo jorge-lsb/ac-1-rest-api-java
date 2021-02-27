@@ -7,7 +7,7 @@ public class Music extends Streaming {
     }
 
     @Override
-    public double calculateRevenue() {
+    public double getCalculateRevenue() {
         return (getStreamingValue() * getAmountOfStreaming()) + ((getStreamingValue() * getAmountOfStreaming()) * 0.15);
     }
 }

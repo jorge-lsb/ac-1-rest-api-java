@@ -12,22 +12,27 @@ public class PublisherCreaterController {
 
     Spotify spotify = getSpotify();
 
-    @GetMapping("/listar")
+    @GetMapping
     public Spotify get() {
         return spotify;
     }
 
-    @PostMapping("/criar")
+    @GetMapping("/{index}")
+    public Publisher getById(@PathVariable int index) {
+        return spotify.getPublisher(index);
+    }
+
+    @PostMapping
     public void create(@RequestBody Publisher publisher) {
         spotify.add(publisher);
     }
 
-    @PutMapping("/atualizar/{index}")
+    @PutMapping("/{index}")
     public void update(@PathVariable int index, @RequestBody Publisher publisher) {
         spotify.update(index, publisher);
     }
 
-    @GetMapping("/remover/{index}")
+    @DeleteMapping("/{index}")
     public void remove(@PathVariable int index) {
         spotify.delete(index);
     }

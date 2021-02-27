@@ -28,7 +28,7 @@ public class Spotify implements BaseServices {
         listPublisher.remove(index);
     }
 
-    public Publisher getPublisher(int index){
+    public Publisher getPublisher(int index) {
         return listPublisher.get(index);
     }
 
