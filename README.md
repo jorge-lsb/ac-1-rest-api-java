@@ -3,7 +3,7 @@
 
 [![N|Solid](https://www.scdn.co/i/_global/open-graph-default.png)](https://www.spotify.com/br/)
 
-O motivo pelo qual escolhi de tema o spotify.
+O motivo pelo qual escolhi o tema spotify.
 
 - Estou sempre ouvindo musica a todo momento.
 
@@ -30,22 +30,84 @@ Ambas possuem atributos iguais, a única coisa que muda é o método de calcular
 ![Diagrama de classe](docs/spotify.jpg)
 
 # EndPoints
-#### Get
+### Get
 Para retornar uma lista de publicadores:
 ```
 http://localhost:8080/publisher
+```
+retorno:
+```json
+{
+    "listPublisher": [
+        {
+            "name": "Teto",
+            "verified": true,
+            "details": "Novo artista da cena",
+            "type": "artista",
+            "listStreaming": [
+                {
+                    "name": "Teto - M4 feat. Matuê",
+                    "playingTime": 2.5,
+                    "streamingValue": 10.0,
+                    "amountOfStreaming": 27601402,
+                    "calculateRevenue": 3.17416123E8
+                }
+            ],
+            "totalListeners": 27601402
+        },
+        {
+            "name": "FlowPodcast",
+            "verified": true,
+            "details": "Novo artista da cena",
+            "type": "podcast",
+            "listStreaming": [],
+            "totalListeners": 0
+        }
+    ]
+}
 ```
 
 Para retornar um publicador:
 ```
 http://localhost:8080/publisher/{index}
 ```
+retorno:
+```json
+{
+    "name": "Teto",
+    "verified": true,
+    "details": "Novo artista da cena",
+    "type": "artista",
+    "listStreaming": [
+        {
+            "name": "Teto - M4 feat. Matuê",
+            "playingTime": 2.5,
+            "streamingValue": 10.0,
+            "amountOfStreaming": 27601402,
+            "calculateRevenue": 3.17416123E8
+        }
+    ],
+    "totalListeners": 27601402
+}
+```
 
 Para retornar uma lista de musica ou podcast de um publicador:
 ```
 http://localhost:8080/streaming/{index}
 ```
-#### Post
+retorno:
+```json
+[
+    {
+        "name": "JÚLIO COCIELO - Flow Podcast #313",
+        "playingTime": 32615.0,
+        "streamingValue": 10.0,
+        "amountOfStreaming": 1783878,
+        "calculateRevenue": 2.1406536E7
+    }
+]
+```
+### Post
 Para inserir um publicador:
 ```
 http://localhost:8080/publisher
@@ -83,7 +145,7 @@ http://localhost:8080/streaming/podcast/{index}
     "amountOfStreaming": 1783878
 }
 ```
-#### Put
+### Put
 Para atualizar um publicador:
 ```
 http://localhost:8080/publisher/{index}
@@ -120,7 +182,7 @@ http://localhost:8080/streaming/podcast/{index publicador}/{index podcast}
     "amountOfStreaming": 1783878
 }
 ```
-#### Delete
+### Delete
 Para remover um publicador:
 ```
 http://localhost:8080/publisher/{index}
@@ -129,3 +191,6 @@ Para remover uma musica ou podcast:
 ```
 http://localhost:8080/streaming/{index publicador}/{index musica ou podcast}
 ```
+
+#### bY Jorge Lucas 👨‍💻
+
