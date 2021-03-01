@@ -23,7 +23,7 @@ public class Publisher implements BaseServices {
 
     @Override
     public void add(Object generic) {
-        if (this.type.equals("artista"))
+        if (generic instanceof Music)
             listStreaming.add(((Music) generic));
         else
             listStreaming.add(((Podcast) generic));
@@ -31,7 +31,7 @@ public class Publisher implements BaseServices {
 
     @Override
     public void update(int index, Object generic) {
-        if (this.type.equals("artista"))
+        if (generic instanceof Music)
             listStreaming.set(index, ((Music) generic));
         else
             listStreaming.set(index, ((Podcast) generic));
