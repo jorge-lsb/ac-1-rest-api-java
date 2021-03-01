@@ -29,7 +29,10 @@ public class Spotify implements BaseServices {
     }
 
     public Publisher getPublisher(int index) {
-        return listPublisher.get(index);
+        if (listPublisher.size() > index)
+            return listPublisher.get(index);
+
+        return null;
     }
 
     public List<Publisher> getListPublisher() {
