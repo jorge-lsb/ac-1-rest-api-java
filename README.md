@@ -120,7 +120,6 @@ http://localhost:8080/publisher
     "type": "podcast"
 }
 ```
-##### é importante que o campo type seja sempre **podcast** ou **artista**
 Para inserir uma musica:
 ```
 http://localhost:8080/streaming/musica/{index}
